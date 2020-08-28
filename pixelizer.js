@@ -35,7 +35,7 @@ export default class Pixelizer {
       friction = false, // use friction
       frictionValue = 1, // 1 - 10,
       autoinit = true,
-      speed = 100, // 1-100 (fast - slow)
+      speed = 10, // 1-100 (fast - slow)
     } = {},
   } = {}) {
     if (canvas === null || typeof src === "undefined") {
@@ -114,7 +114,7 @@ export default class Pixelizer {
     particle.accY = 0;
 
     //### set friction to define how fast the pixel will end up in dest position
-    particle.friction = Math.random() * this.frictionValue + 0.94;
+    particle.friction = (Math.random() * this.frictionValue) / 100 + 0.94;
 
     //### set color
     particle.color = this.colors[
@@ -133,6 +133,8 @@ export default class Pixelizer {
       p.vy += p.accY;
       p.vx *= p.friction;
       p.vy *= p.friction;
+      p.x += p.vx;
+      p.y += p.vy;
     } else {
       p.accX = (p.dest.x - p.x) / this.speed;
       p.accY = (p.dest.y - p.y) / this.speed;
@@ -205,3 +207,4 @@ export default class Pixelizer {
     this.ctx.clearRect(0, 0, this.cw, this.ch);
   }
 }
+
