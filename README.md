@@ -14,30 +14,31 @@ create new Instance with data-object:
 
 # data
     data = {
-     canvas: '#canvas', -> mandatory: DOM-Selector for canvas element
+    
+          canvas: '#canvas', -> mandatory: DOM-Selector for canvas element
 
-     src: './image.svg', -> mandatory: Source for image file. can be svg, png, jpeg.
+          src: './image.svg', -> mandatory: Source for image file. can be svg, png, jpeg.
 
-     options: { -> optional parameters:
+          options: { -> optional parameters:
 
-         pixelRadius = 5, // size of pixels
+              pixelRadius = 5, // size of pixels
 
-         amount = 150, // amount of pixel
+              amount = 150, // amount of pixel
 
-         threshhold = 150, //range: 1-254, threshhold for pixel values from original img
+              threshhold = 150, //range: 1-254, threshhold for pixel values from original img
 
-         colors = ["#FFFFFF"], // array with colors for random colorization of pixels
+              colors = ["#FFFFFF"], // array with colors for random colorization of pixels
 
-         verticalDistribution = 5, // how far pixels fly around vertically
+              verticalDistribution = 5, // how far pixels fly around vertically
 
-         horizontalDistribution = 5, // how far pixels fly around horizontally
+              horizontalDistribution = 5, // how far pixels fly around horizontally
 
-         friction = false, // if friction is true, pixels will not head straight to destination. if true, speed is ignored
+              friction = false, // if friction is true, pixels will not head straight to destination. if true, speed is ignored
 
-         frictionValue = 1, // range: 1-10, define variation of 
+              frictionValue = 1, // range: 1-10, define variation of 
 
-         autoinit = true // wether animation starts on instance creation. if set to false, init animation with pixelizer.init()
+              autoinit = true // wether animation starts on instance creation. if set to false, init animation with pixelizer.init()
 
-         speed = 100 // 1-1000: how fast pixels will get to destination
-    }
-   }
+              speed = 100 // 1-1000: how fast pixels will get to destination
+          }
+     }
