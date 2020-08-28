@@ -9,7 +9,8 @@ This script is based on the work of Louis Hoebregts @Mamboleoo on codepen: https
 
 # usage
 create new Instance with data-object: 
-let pixelizer = new Pixelizer({data})
+     
+     let pixelizer = new Pixelizer({data})
 
 # data
     data = {
