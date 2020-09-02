@@ -169,7 +169,7 @@ export default class Pixelizer {
     );
     const x = this.cw / 2 - (this.img.width / 2) * scale;
     const y = this.ch / 2 - (this.img.height / 2) * scale;
-
+    this.clearCanvas();
     //### draw image
     this.ctx.drawImage(
       this.img,
