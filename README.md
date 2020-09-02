@@ -1,7 +1,14 @@
+# version
+v1.0
+
 # pixelizer
 Small script to create a pixel animation based on an image. Script will draw image on canvas, create pixels out of image and then animate those pixels to render the image at the end. 
 
 This script is based on the work of Louis Hoebregts @Mamboleoo on codepen: https://codepen.io/Mamboleoo/pen/obWGYr. I took his algorithm, put it into a class and customized it with different options.
+
+# demo
+
+try out on https://mevimedia.de/pixelizer‚
 
 # implementation
 - add script as module to your html file.
