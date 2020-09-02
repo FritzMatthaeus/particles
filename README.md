@@ -8,7 +8,7 @@ This script is based on the work of Louis Hoebregts @Mamboleoo on codepen: https
 
 # demo
 
-try out on https://mevimedia.de/pixelizer
+try out on <a href="https://mevimedia.de/pixelizer" target="_blank">https://mevimedia.de/pixelizer</a>
 
 # implementation
 - add script as module to your html file.
