@@ -83,7 +83,7 @@ export default class Pixelizer {
 
     //### set speed
     this.speed = speed;
-    console.log(this);
+
     //### initiate animation on creation
     if (autoinit) {
       this.init();
@@ -180,7 +180,6 @@ export default class Pixelizer {
     );
 
     this.imgData = this.ctx.getImageData(0, 0, this.cw, this.ch).data;
-    //this.clearCanvas();
     this.ctx.globalCompositeOperation = "screen";
   }
 
@@ -196,15 +195,16 @@ export default class Pixelizer {
   }
 
   renderLoop() {
-    window.requestAnimationFrame(this.renderLoop.bind(this));
     this.clearCanvas();
+
     for (let i = 0; i < this.particles.length; i++) {
       this.render(this.particles[i]);
     }
+
+    window.requestAnimationFrame(this.renderLoop.bind(this));
   }
 
   clearCanvas() {
     this.ctx.clearRect(0, 0, this.cw, this.ch);
   }
 }
-
