@@ -11,8 +11,9 @@ This script is based on the work of Louis Hoebregts @Mamboleoo on codepen: https
 try out on <a href="https://mevimedia.de/pixelizer" target="_blank">https://mevimedia.de/pixelizer</a>
 
 # implementation
-- add script as module to your html file.
-- import Pixelizer 
+import Pixelizer 
+     
+     import 'Pixelizer' from './pixelizer.js'
 
 # usage
 create new Instance with data-object: 
