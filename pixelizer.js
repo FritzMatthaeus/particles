@@ -15,6 +15,7 @@
  *       friction = false, // use friction: if true, speed is ignored
  *       frictionValue = 1, // range: 1-10, speed variety between pixels
  *       autoinit = true // wether animation starts on instance creation
+ *       autostop = 100 // stops the rendering loop after give iterations
  *       speed = 100 // 1-1000: how fast pixels will get to destination
  *     } = {},
  *   }={}]
@@ -26,7 +27,7 @@ export default class Pixelizer {
     canvas = null,
     src,
     options: {
-      pixelRadius = 5,
+      pixelRadius = 0,
       amount = 150,
       threshhold = 150,
       colors = ["#FFFFFF"],
@@ -35,6 +36,7 @@ export default class Pixelizer {
       friction = false, // use friction
       frictionValue = 1, // 1 - 10,
       autoinit = true,
+      autostop = 100,
       speed = 10, // 1-100 (fast - slow)
     } = {},
   } = {}) {
@@ -83,6 +85,10 @@ export default class Pixelizer {
 
     //### set speed
     this.speed = speed;
+
+    //### set autostop
+    this.autstop = autostop;
+    this.autoStopCounter = 0;
 
     //### initiate animation on creation
     if (autoinit) {
@@ -169,7 +175,7 @@ export default class Pixelizer {
     );
     const x = this.cw / 2 - (this.img.width / 2) * scale;
     const y = this.ch / 2 - (this.img.height / 2) * scale;
-    this.clearCanvas();
+
     //### draw image
     this.ctx.drawImage(
       this.img,
@@ -180,6 +186,7 @@ export default class Pixelizer {
     );
 
     this.imgData = this.ctx.getImageData(0, 0, this.cw, this.ch).data;
+    //this.clearCanvas();
     this.ctx.globalCompositeOperation = "screen";
   }
 
@@ -191,17 +198,16 @@ export default class Pixelizer {
         }
       }
     }
-    console.log("particles: " + this.particles.length, this.threshhold);
   }
 
   renderLoop() {
+    this.autoStopCounter++;
+    if (this.autoStopCounter > this.autstop) return;
+    window.requestAnimationFrame(this.renderLoop.bind(this));
     this.clearCanvas();
-
     for (let i = 0; i < this.particles.length; i++) {
       this.render(this.particles[i]);
     }
-
-    window.requestAnimationFrame(this.renderLoop.bind(this));
   }
 
   clearCanvas() {
